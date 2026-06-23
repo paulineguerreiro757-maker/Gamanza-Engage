@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1a2c">
+<title>Gamanza Engage — Platform Overview</title>
+<style>
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --navy:    #0a1a2c;
+  --navy2:   #0d1f35;
+  --purple:  #7c6cf6;
+  --purple2: #a78bfa;
+  --teal:    #2ee6b8;
+  --pink:    #ec4899;
+  --text:    #15182b;
+  --muted:   #5b6270;
+  --light:   #f3f1fd;
+  --border:  #e6e8ec;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+h1 { font-size: clamp(38px, 8vw, 72px); font-weight: 800; line-height: 1.05; }
+h2 { font-size: clamp(26px, 5vw, 42px); font-weight: 800; line-height: 1.15; }
+h3 { font-size: clamp(20px, 4vw, 28px); font-weight: 700; line-height: 1.25; }
+h4 { font-size: clamp(17px, 3vw, 20px); font-weight: 700; line-height: 1.3; }
+p  { font-size: clamp(15px, 2.5vw, 17px); line-height: 1.65; color: var(--muted); }
+
+.accent  { color: var(--purple); }
+.accent2 { color: var(--teal); }
+.accent3 { color: var(--pink); }
+
+/* ── LAYOUT ── */
+section { width: 100%; overflow: hidden; }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+@media (max-width: 600px) {
+  .container { padding: 56px 20px; }
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 32px 0;
+}
+
+/* ── GRADIENT BAR ── */
+.grad-bar {
+  width: 200px; height: 5px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--purple) 0%, #e8458f 50%, var(--teal) 100%);
+  margin-top: 36px;
+}
+
+/* ─────────────────────────────────────────
+   SECTION 1 — HERO
+───────────────────────────────────────── */
+.s-hero {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.s-hero .container { padding-top: 80px; padding-bottom: 80px; }
+
+.hero-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+.logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-mark svg { width: 44px; height: 44px; }
+.logo-name { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+.logo-sub  { font-size: 10px; font-weight: 600; letter-spacing: 4px; color: var(--purple); margin-top: -2px; }
+.hero-tag  { font-size: 12px; color: #4a5568; letter-spacing: 1px; }
+
+.hero-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--purple); margin-bottom: 20px;
+}
+.hero-h1 { color: #fff; margin-bottom: 24px; }
+.hero-h1 .l2 { color: var(--purple); }
+.hero-h1 .l3 { color: var(--teal); }
+.hero-sub { font-size: clamp(16px, 3vw, 20px); color: #8a9ab8; max-width: 600px; }
+
+/* Hero stats */
+.hero-stats {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stats-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  color: #4a5568; margin-bottom: 28px; text-transform: uppercase;
+}
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 500px) {
+  .stats-row { grid-template-columns: 1fr; gap: 20px; }
+}
+.stat-item .num {
+  font-size: clamp(40px, 8vw, 56px); font-weight: 800; line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-item .num.teal   { color: var(--teal); }
+.stat-item .num.purple { color: var(--purple2); }
+.stat-item .num.pink   { color: var(--pink); }
+.stat-item .desc { font-size: 14px; color: #8a9ab8; line-height: 1.4; }
+
+/* ─────────────────────────────────────────
+   SECTION 2 — O PROBLEMA
+───────────────────────────────────────── */
+.s-problem { background: #fff; }
+
+.belief-box {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+.belief-box .bq {
+  font-size: clamp(18px, 3.5vw, 22px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.belief-box .bsub {
+  font-size: 16px; color: #6952e0; font-weight: 500;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (max-width: 500px) {
+  .reasons-grid { grid-template-columns: 1fr; }
+}
+.reason-card {
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+}
+.reason-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 14px;
+}
+.reason-card h4 { margin-bottom: 8px; color: var(--text); }
+.reason-card p  { font-size: 14px; }
+
+.bottom-stmt {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 30px 28px;
+}
+.bottom-stmt p { font-size: clamp(15px, 2.5vw, 18px); color: #c7cdd6; }
+.bottom-stmt strong { color: #fff; }
+.bottom-stmt .hl { color: var(--teal); font-weight: 700; }
+
+/* ─────────────────────────────────────────
+   SECTION 3 — QUEM SOMOS
+───────────────────────────────────────── */
+.s-about { background: #fafafa; }
+
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 500px) {
+  .cred-grid { grid-template-columns: 1fr; }
+}
+.cred-card {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+}
+.cred-card .cc-icon {
+  font-size: 32px; margin-bottom: 10px; display: block;
+}
+.cred-card .cc-num {
+  font-size: 32px; font-weight: 800; margin-bottom: 6px;
+}
+.cred-card .cc-num.purple { color: var(--purple); }
+.cred-card .cc-num.teal   { color: var(--teal); }
+.cred-card h4 { margin-bottom: 8px; color: var(--text); font-size: 16px; }
+.cred-card p  { font-size: 14px; }
+
+.level-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a1060 100%);
+  border-radius: 16px;
+  padding: 32px 28px;
+}
+.level-banner .lb-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: var(--purple); text-transform: uppercase; margin-bottom: 12px;
+}
+.level-banner h3 { color: #fff; margin-bottom: 14px; }
+.level-banner p  { color: #b0bec8; }
+.level-banner .hl { color: var(--teal); font-weight: 700; }
+
+/* ─────────────────────────────────────────
+   SECTION 4 — PLATAFORMA
+───────────────────────────────────────── */
+.s-platform { background: var(--navy); }
+.s-platform .eyebrow { color: #8b7cf6; }
+.s-platform h2 { color: #fff; }
+.s-platform h2 .accent { color: var(--teal); }
+.s-platform .lead { color: #8a9ab8; margin-top: 10px; margin-bottom: 28px; }
+
+.eco-pill {
+  background: rgba(124,108,246,0.12);
+  border: 1px solid rgba(124,108,246,0.3);
+  border-radius: 14px;
+  padding: 20px 24px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.eco-pill h3 { color: #fff; margin-bottom: 6px; font-size: 18px; }
+.eco-pill p  { color: #a78bfa; font-size: 14px; }
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+@media (max-width: 640px) {
+  .modules-grid { grid-template-columns: 1fr; }
+}
+.module-card {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 20px 18px;
+}
+.mod-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.mod-badge.purple { background: rgba(124,108,246,0.25); color: #a78bfa; }
+.mod-badge.teal   { background: rgba(46,230,184,0.15);  color: var(--teal); }
+.mod-badge.pink   { background: rgba(236,72,153,0.15);  color: #f472b6; }
+.mod-badge.amber  { background: rgba(245,158,11,0.15);  color: #fbbf24; }
+.mod-badge.blue   { background: rgba(59,130,246,0.15);  color: #93c5fd; }
+.module-card h4 { color: #fff; font-size: 16px; margin-bottom: 10px; }
+.module-card ul { list-style: none; }
+.module-card ul li {
+  font-size: 13px; color: #8a9ab8;
+  padding: 4px 0 4px 14px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.module-card ul li:last-child { border-bottom: none; }
+.module-card ul li::before {
+  content: '';
+  position: absolute; left: 0; top: 12px;
+  width: 5px; height: 5px;
+  border-radius: 50%; background: var(--purple);
+}
+.module-card.teal ul li::before  { background: var(--teal); }
+.module-card.pink ul li::before  { background: var(--pink); }
+.module-card.amber ul li::before { background: #f59e0b; }
+.module-card.blue ul li::before  { background: #60a5fa; }
+
+.dna-box {
+  background: rgba(46,230,184,0.08);
+  border: 1px solid rgba(46,230,184,0.2);
+  border-radius: 14px;
+  padding: 24px 22px;
+  margin-top: 14px;
+}
+.dna-box .db-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: var(--teal); text-transform: uppercase; margin-bottom: 8px;
+}
+.dna-box h4 { color: #fff; margin-bottom: 8px; }
+.dna-box p  { color: #8a9ab8; font-size: 15px; }
+
+/* ─────────────────────────────────────────
+   SECTION 5 — AI
+───────────────────────────────────────── */
+.s-ai { background: #fff; }
+
+.ai-intro {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.ai-intro h3 { margin-bottom: 10px; color: var(--text); }
+.ai-intro p  { font-size: 16px; }
+.ai-intro .hl { color: #6952e0; font-weight: 700; }
+
+.ai-models {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+@media (max-width: 600px) {
+  .ai-models { grid-template-columns: 1fr; }
+}
+.ai-model-box {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 22px 18px;
+}
+.ai-model-box .mb-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  color: #6b7280; text-transform: uppercase; margin-bottom: 10px;
+}
+.ai-model-box .mb-num {
+  font-size: 40px; font-weight: 800; line-height: 1; margin-bottom: 8px;
+}
+.ai-model-box .mb-num.teal   { color: var(--teal); }
+.ai-model-box .mb-num.pink   { color: var(--pink); }
+.ai-model-box .mb-num.purple { color: var(--purple2); }
+.ai-model-box h4 { color: #fff; font-size: 15px; margin-bottom: 6px; }
+.ai-model-box p  { color: #8a9ab8; font-size: 13px; line-height: 1.5; }
+
+/* VIP compare */
+.vip-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+@media (max-width: 500px) {
+  .vip-compare { grid-template-columns: 1fr; }
+}
+.vc-box { border-radius: 14px; padding: 24px 20px; }
+.vc-box.bad  { background: #fdeef2; border: 1.5px solid #f7d2dd; }
+.vc-box.good { background: #e9faf3; border: 1.5px solid #b9f0d8; }
+.vc-tag { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.vc-box.bad  .vc-tag { color: #d63878; }
+.vc-box.good .vc-tag { color: #0a9e6e; }
+.vc-big { font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin-bottom: 10px; }
+.vc-box.bad  .vc-big { color: #d63878; }
+.vc-box.good .vc-big { color: #0a9e6e; }
+.vc-box p { font-size: 14px; color: #4a4f5a; }
+
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+@media (max-width: 600px) {
+  .addons-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.addon-chip {
+  border: 1.5px solid #e2dffb;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+}
+.addon-chip .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--purple); display: inline-block; margin-bottom: 6px;
+}
+.addon-chip p { font-size: 12px; color: #4a4f5a; font-weight: 600; line-height: 1.35; }
+
+/* ─────────────────────────────────────────
+   SECTION 6 — RESULTADOS
+───────────────────────────────────────── */
+.s-results { background: var(--navy); }
+.s-results .eyebrow { color: #8b7cf6; }
+.s-results h2 { color: #fff; }
+.s-results h2 .accent { color: var(--teal); }
+.s-results .lead { color: #8a9ab8; margin-top: 8px; margin-bottom: 28px; }
+
+.swiss-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 36px;
+}
+@media (max-width: 500px) {
+  .swiss-kpis { grid-template-columns: 1fr; gap: 20px; }
+}
+.swiss-kpi {
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.swiss-kpi:first-child { border-top: 3px solid var(--teal); }
+.swiss-kpi:nth-child(2){ border-top: 3px solid var(--purple2); }
+.swiss-kpi:last-child  { border-top: 3px solid var(--pink); }
+.swiss-kpi .knum {
+  font-size: clamp(48px, 9vw, 68px); font-weight: 800; line-height: 1; margin-bottom: 8px;
+}
+.swiss-kpi:first-child .knum { color: var(--teal); }
+.swiss-kpi:nth-child(2) .knum { color: var(--purple2); }
+.swiss-kpi:last-child .knum  { color: var(--pink); }
+.swiss-kpi .klabel  { font-size: 16px; color: #c7cdd6; margin-bottom: 4px; }
+.swiss-kpi .kdetail { font-size: 13px; color: #4a5568; }
+
+/* Engagement Effect */
+.ee-divider {
+  margin: 8px 0 24px 0;
+}
+.ee-divider .ee-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: #8b7cf6; text-transform: uppercase; margin-bottom: 10px;
+}
+.ee-divider .ee-line {
+  height: 1px; background: rgba(255,255,255,0.08);
+}
+
+.ee-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 28px;
+}
+@media (max-width: 600px) {
+  .ee-kpis { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+.ee-kpi { padding-top: 18px; padding-right: 16px; }
+.ee-kpi:nth-child(1){ border-top: 3px solid var(--teal); }
+.ee-kpi:nth-child(2){ border-top: 3px solid var(--pink); }
+.ee-kpi:nth-child(3){ border-top: 3px solid var(--purple2); }
+.ee-kpi:nth-child(4){ border-top: 3px solid var(--teal); }
+.ee-kpi .enum {
+  font-size: clamp(36px, 7vw, 52px); font-weight: 800; line-height: 1; margin-bottom: 8px;
+}
+.ee-kpi:nth-child(1) .enum { color: var(--teal); }
+.ee-kpi:nth-child(2) .enum { color: var(--pink); }
+.ee-kpi:nth-child(3) .enum { color: var(--purple2); }
+.ee-kpi:nth-child(4) .enum { color: var(--teal); }
+.ee-kpi .elabel  { font-size: 15px; color: #c7cdd6; line-height: 1.4; margin-bottom: 6px; }
+.ee-kpi .edetail { font-size: 13px; color: #4a5568; line-height: 1.4; }
+
+.br-box {
+  background: rgba(124,108,246,0.15);
+  border: 1px solid rgba(124,108,246,0.3);
+  border-radius: 14px;
+  padding: 26px 24px;
+}
+.br-box .br-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: #8b7cf6; text-transform: uppercase; margin-bottom: 10px;
+}
+.br-box p { font-size: 16px; color: #c7cdd6; }
+.br-box .hl { color: var(--purple2); font-weight: 700; }
+
+/* ─────────────────────────────────────────
+   SECTION 7 — DIFERENCIAL + CTA
+───────────────────────────────────────── */
+.s-diff { background: #fff; }
+
+.diff-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+@media (max-width: 640px) {
+  .diff-cards { grid-template-columns: 1fr; }
+}
+.diff-card { border-radius: 14px; padding: 24px 20px; }
+.diff-card.d1 { background: #f3f1fd; border-left: 4px solid var(--purple); }
+.diff-card.d2 { background: #edfdf7; border-left: 4px solid var(--teal); }
+.diff-card.d3 { background: #fff0f8; border-left: 4px solid var(--pink); }
+.diff-card .dc-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.diff-card.d1 .dc-label { color: #6952e0; }
+.diff-card.d2 .dc-label { color: #0d9e6f; }
+.diff-card.d3 .dc-label { color: #c0307a; }
+.diff-card h4 { color: var(--text); margin-bottom: 8px; }
+.diff-card p  { font-size: 14px; }
+
+/* Compare block */
+.compare-block {
+  background: var(--navy);
+  border-radius: 18px;
+  padding: 28px 24px;
+  margin-bottom: 28px;
+}
+.compare-block .cb-title {
+  font-size: 18px; font-weight: 800; color: #fff;
+  text-align: center; margin-bottom: 22px;
+}
+.compare-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 480px) {
+  .compare-cols { grid-template-columns: 1fr; }
+}
+.compare-col .col-header {
+  padding: 10px 16px; border-radius: 8px; margin-bottom: 12px;
+}
+.compare-col.crm .col-header     { background: rgba(255,255,255,0.05); }
+.compare-col.gamanza .col-header { background: rgba(124,108,246,0.2); }
+.col-header .ch-label { font-size: 15px; font-weight: 700; }
+.compare-col.crm .ch-label     { color: #6b7280; }
+.compare-col.gamanza .ch-label { color: #a78bfa; }
+.compare-item { padding: 9px 14px; border-radius: 7px; margin-bottom: 7px; }
+.compare-col.crm .compare-item     { background: rgba(255,255,255,0.03); }
+.compare-col.gamanza .compare-item { background: rgba(124,108,246,0.1); }
+.compare-col.crm .ci-text     { font-size: 14px; color: #5b6270; }
+.compare-col.crm .ci-text::before { content: "— "; color: #4a5568; }
+.compare-col.gamanza .ci-text { font-size: 14px; color: #c7cdd6; font-weight: 500; }
+.compare-col.gamanza .ci-text::before { content: "✦ "; color: var(--purple); font-size: 10px; }
+
+/* Checklist */
+.checklist { margin-bottom: 28px; }
+.checklist-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  color: var(--purple); text-transform: uppercase; margin-bottom: 4px;
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f3;
+}
+.check-item:last-child { border-bottom: none; }
+.check-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.check-text { font-size: clamp(14px, 2.5vw, 16px); color: #33394a; line-height: 1.45; }
+.check-text strong { color: var(--text); font-weight: 700; }
+
+/* CTA */
+.cta-box {
+  background: var(--navy);
+  border-radius: 18px;
+  padding: 40px 32px;
+}
+.cta-box .cta-ey {
+  font-size: 11px; font-weight: 700; letter-spacing: 3px;
+  color: #8b7cf6; text-transform: uppercase; margin-bottom: 14px;
+}
+.cta-box h3 { color: #fff; margin-bottom: 14px; }
+.cta-box h3 .hl { color: var(--teal); }
+.cta-box p { color: #8a9ab8; font-size: 17px; margin-bottom: 24px; }
+.cta-bar {
+  width: 160px; height: 4px; border-radius: 4px;
+  background: linear-gradient(90deg, var(--purple) 0%, #e8458f 50%, var(--teal) 100%);
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 6px; margin-top: 48px; opacity: 0.4;
+  animation: bounce 2s infinite;
+}
+.scroll-hint span { font-size: 11px; color: #8a9ab8; letter-spacing: 1px; }
+.scroll-arrow { font-size: 20px; color: #8a9ab8; }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     SECTION 1 — HERO
+═══════════════════════════════ -->
+<section class="s-hero">
+  <div class="container">
+
+    <nav class="hero-nav">
+      <div class="logo-mark">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a78bfa"/>
+              <stop offset="100%" stop-color="#5b3fd6"/>
+            </linearGradient>
+          </defs>
+          <path d="M32 4 L58 32 L32 60 C16 60 4 47.5 4 32 C4 16.5 16 4 32 4 Z" fill="url(#lg)"/>
+          <circle cx="30" cy="32" r="13" fill="#0d1b2e"/>
+          <path d="M30 21 A11 11 0 1 1 19 32" stroke="#fff" stroke-width="4" fill="none"/>
+        </svg>
+        <div>
+          <div class="logo-name">GAMANZA</div>
+          <div class="logo-sub">ENGAGE</div>
+        </div>
+      </div>
+      <div class="hero-tag">Player Engagement Platform</div>
+    </nav>
+
+    <div class="hero-eyebrow">Platform Overview</div>
+    <h1 class="hero-h1">
+      Transformando<br>
+      <span class="l2">produto</span><br>
+      <span class="l3">em hábito.</span>
+    </h1>
+    <p class="hero-sub">Gamificação, CRM em tempo real, IA e personalização para aumentar retenção, engajamento e valor do jogador.</p>
+    <div class="grad-bar"></div>
+
+    <div class="hero-stats">
+      <div class="hero-stats-label">Resultados com clientes ativos — Swiss Market Reference</div>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="num teal">+46%</div>
+          <div class="desc">Crescimento de GGR com clientes na plataforma</div>
+        </div>
+        <div class="stat-item">
+          <div class="num purple">+38%</div>
+          <div class="desc">Base ativa, sustentada por 13 meses consecutivos</div>
+        </div>
+        <div class="stat-item">
+          <div class="num pink">+27%</div>
+          <div class="desc">Aumento no baseline de jogadores ativos</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SECTION 2 — O PROBLEMA
+═══════════════════════════════ -->
+<section class="s-problem">
+  <div class="container">
+
+    <div class="eyebrow">A Nossa Crença</div>
+    <h2>Retenção não é consequência<br><span class="accent">de sorte.</span></h2>
+    <div class="divider"></div>
+
+    <div class="belief-box">
+      <div class="bq">Jogadores retornam quando <span class="accent">sentem que pertencem</span> — não apenas quando recebem um bônus.</div>
+      <div class="bsub">A Gamanza foi construída para criar essa sensação de forma sistemática e escalável.</div>
+    </div>
+
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-icon" style="background:#f3f1fd;">📈</div>
+        <h4>Sentem progresso</h4>
+        <p>Ranks, níveis e XP criam uma jornada contínua que mantém o jogador motivado a voltar.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon" style="background:#edfdf7;">🎯</div>
+        <h4>Possuem objetivos</h4>
+        <p>Missões com propósito e desafios com recompensa criam razões claras para jogar além do jogo.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon" style="background:#fff0f8;">🏆</div>
+        <h4>Recebem reconhecimento</h4>
+        <p>Status, leaderboards e recompensas exclusivas ativam o instinto humano de conquistar.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon" style="background:#fdf6e3;">💎</div>
+        <h4>Encontram valor além do bônus</h4>
+        <p>Gamificação cria valor percebido sem impacto direto na margem operacional.</p>
+      </div>
+    </div>
+
+    <div class="bottom-stmt">
+      <p>A maioria das plataformas <strong>comunica</strong> com seus jogadores.<br>
+      A Gamanza Engage <span class="hl">orquestra experiências</span> — conectando comunicação, gamificação, loyalty e IA num único ecossistema comportamental.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SECTION 3 — QUEM SOMOS
+═══════════════════════════════ -->
+<section class="s-about">
+  <div class="container">
+
+    <div class="eyebrow">Quem Somos</div>
+    <h2>Uma empresa construída<br><span class="accent">para mercados exigentes.</span></h2>
+    <div class="divider"></div>
+
+    <div class="cred-grid">
+      <div class="cred-card">
+        <span class="cc-icon">🇨🇭</span>
+        <h4>Origem Suíça</h4>
+        <p>Desenvolvida a partir da Suíça — um dos mercados de iGaming mais regulados do mundo. Padrões de qualidade, compliance e estabilidade técnica.</p>
+      </div>
+      <div class="cred-card">
+        <div class="cc-num purple">100%</div>
+        <h4>Foco exclusivo em engajamento</h4>
+        <p>Não somos uma plataforma genérica. Um único propósito: maximizar retenção e valor do jogador.</p>
+      </div>
+      <div class="cred-card">
+        <span class="cc-icon">🌍</span>
+        <h4>Presença global, foco local</h4>
+        <p>Operamos em mercados regulados na Europa e América Latina. Modelos de IA treinados por operador — não por média de mercado.</p>
+      </div>
+      <div class="cred-card">
+        <span class="cc-icon">⚖️</span>
+        <h4>Responsible Gaming by design</h4>
+        <p>RG integrado desde a arquitetura — não como add-on, mas como parte do produto central.</p>
+      </div>
+    </div>
+
+    <div class="level-banner">
+      <div class="lb-label">O Desafio que Todo Operador Enfrenta</div>
+      <h3>Mesmos jogos. Mesmos provedores. Mesmos bônus. O campo está nivelado.</h3>
+      <p style="margin-top:12px;">Hoje, a maioria dos operadores oferece os mesmos jogos, os mesmos provedores, os mesmos bônus e os mesmos meios de pagamento. A regulação nivelou o campo. O diferencial competitivo que resta está numa única coisa: <span class="hl">a experiência que faz o jogador voltar</span> — e isso não se constrói com mais bônus.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SECTION 4 — PLATAFORMA
+═══════════════════════════════ -->
+<section class="s-platform">
+  <div class="container">
+
+    <div class="eyebrow">A Plataforma</div>
+    <h2>Um ecossistema <span class="accent">unificado.</span></h2>
+    <p class="lead">Cinco módulos conectados. Uma única integração. Tudo dentro do mesmo ambiente operacional.</p>
+
+    <div class="eco-pill">
+      <h3>Uma única integração. Cinco ferramentas poderosas.</h3>
+      <p>CRM · Gamificação · Loyalty · IA & Personalização · Responsible Gaming Intelligence</p>
+    </div>
+
+    <div class="modules-grid">
+      <div class="module-card">
+        <span class="mod-badge purple">CRM & Orchestration</span>
+        <h4>Real-Time CRM</h4>
+        <ul>
+          <li>Segmentação em tempo real</li>
+          <li>Workflows avançados</li>
+          <li>Jornadas automatizadas</li>
+          <li>Triggers comportamentais</li>
+          <li>Multicanal</li>
+        </ul>
+      </div>
+      <div class="module-card teal">
+        <span class="mod-badge teal">Gamificação</span>
+        <h4>Engagement Engine</h4>
+        <ul>
+          <li>Missions & Challenges</li>
+          <li>Leaderboards</li>
+          <li>Avatars & Collections</li>
+          <li>Loot Airdrops</li>
+          <li>Seasonal Events</li>
+          <li>Rewards Shop</li>
+        </ul>
+      </div>
+      <div class="module-card">
+        <span class="mod-badge purple">Loyalty</span>
+        <h4>Loyalty Program</h4>
+        <ul>
+          <li>Ranks & Níveis com XP</li>
+          <li>Tokens & Moeda virtual</li>
+          <li>Benefícios por tier</li>
+          <li>Progressão estruturada</li>
+          <li>Psicologia do status</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modules-grid">
+      <div class="module-card pink">
+        <span class="mod-badge pink">Engage AI</span>
+        <h4>IA & Personalização</h4>
+        <ul>
+          <li>Next Best Action</li>
+          <li>Next Best Reward</li>
+          <li>Churn Prediction (85% recall)</li>
+          <li>Early VIP Detection</li>
+          <li>LTV Prediction — 60 dias</li>
+          <li>Bonus Abuse Detection</li>
+        </ul>
+      </div>
+      <div class="module-card amber">
+        <span class="mod-badge amber">Responsible Gaming</span>
+        <h4>RG Intelligence</h4>
+        <ul>
+          <li>Risk scoring comportamental</li>
+          <li>Self-exclusion integrado</li>
+          <li>Cool-offs & limites</li>
+          <li>Mindful Player program</li>
+          <li>Compliance-ready</li>
+        </ul>
+      </div>
+      <div class="module-card blue">
+        <span class="mod-badge blue">User DNA</span>
+        <h4>Player Intelligence</h4>
+        <ul>
+          <li>Perfil comportamental único</li>
+          <li>Motivadores individuais</li>
+          <li>Padrões de jogo</li>
+          <li>Preferências por canal</li>
+          <li>Coração da plataforma</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dna-box">
+      <div class="db-label">A Diferença Fundamental</div>
+      <h4>Não é um CRM com gamificação por cima. É um ecossistema comportamental.</h4>
+      <p>Cada ação do jogador alimenta o User DNA. O User DNA alimenta a IA. A IA orquestra o CRM. O CRM entrega a experiência de gamificação certa, no momento certo, para o jogador certo.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SECTION 5 — ENGAGE AI
+═══════════════════════════════ -->
+<section class="s-ai">
+  <div class="container">
+
+    <div class="eyebrow">Engage AI — Inteligência Aplicada à Retenção</div>
+    <h2>IA que <span class="accent">decide com precisão.</span></h2>
+    <div class="divider"></div>
+
+    <div class="ai-intro">
+      <h3>Modelos treinados com os seus dados — não com a média do mercado.</h3>
+      <p>Cada operador recebe um modelo <span class="hl">exclusivo</span>, treinado com seu próprio histórico de jogadores, campanhas e comportamento de mercado. Seus dados nunca se misturam com os de outra marca.</p>
+    </div>
+
+    <div class="ai-models">
+      <div class="ai-model-box">
+        <div class="mb-label">Churn Prediction — Recall</div>
+        <div class="mb-num teal">85%</div>
+        <h4>Previsão de Churn</h4>
+        <p>8,5 em cada 10 churns identificados antes de acontecer. Reter um VIP é até 5× mais eficiente que adquirir um novo via CPA.</p>
+      </div>
+      <div class="ai-model-box">
+        <div class="mb-label">LTV Prediction — VIPs</div>
+        <div class="mb-num pink">71%</div>
+        <h4>Identificação de VIP</h4>
+        <p>Contra 15% do benchmark de mercado. Orçamento e tempo de equipe alocados onde há retorno real.</p>
+      </div>
+      <div class="ai-model-box">
+        <div class="mb-label">Early VIP — Primeiros Dias</div>
+        <div class="mb-num purple">Early</div>
+        <h4>VIP Detection antecipado</h4>
+        <p>Identifica perfis VIP antes que sinais convencionais — como volume de depósito — se tornem visíveis.</p>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:#7c6cf6; font-weight:600; letter-spacing:1px; margin-bottom:12px;">O QUE A PRECISÃO SIGNIFICA EM DINHEIRO — CENÁRIO HIPOTÉTICO</p>
+    <div class="vip-compare">
+      <div class="vc-box bad">
+        <div class="vc-tag">Com 15% de precisão (mercado)</div>
+        <div class="vc-big">300 / 2.000 VIPs reais</div>
+        <p>1.700 jogadores recebem tratamento VIP sem justificativa — desperdício direto de orçamento.</p>
+      </div>
+      <div class="vc-box good">
+        <div class="vc-tag">Com 71% de precisão (Gamanza)</div>
+        <div class="vc-big">1.420 / 2.000 VIPs reais</div>
+        <p>Orçamento alocado onde há retorno real. ROI de cada ação de retenção multiplicado.</p>
+      </div>
+    </div>
+    <p style="font-size:12px; color:#9aa0ab; font-style:italic; margin-top:8px; margin-bottom:16px;">* Cenário fictício para fins ilustrativos. Dados hipotéticos.</p>
+
+    <p style="font-size:13px; color:#7c6cf6; font-weight:600; letter-spacing:1px; margin-bottom:12px;">MODELOS ADD-ON DISPONÍVEIS</p>
+    <div class="addons-grid">
+      <div class="addon-chip"><div class="dot"></div><p>Player Frequency Prediction</p></div>
+      <div class="addon-chip"><div class="dot"></div><p>Bonus Abuse Detection</p></div>
+      <div class="addon-chip"><div class="dot"></div><p>RG Risk Scoring</p></div>
+      <div class="addon-chip"><div class="dot"></div><p>AML Prediction</p></div>
+      <div class="addon-chip"><div class="dot"></div><p>Game Recommendations</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SECTION 6 — RESULTADOS
+═══════════════════════════════ -->
+<section class="s-results">
+  <div class="container">
+
+    <div class="eyebrow">Resultados com Clientes Ativos</div>
+    <h2>Números que <span class="accent">falam por si.</span></h2>
+    <p class="lead">Dados reais de operadores reais. Sem projeções.</p>
+
+    <div class="swiss-kpis">
+      <div class="swiss-kpi">
+        <div class="knum">+46%</div>
+        <div class="klabel">Crescimento de GGR</div>
+        <div class="kdetail">Com clientes ativos na plataforma Gamanza Engage</div>
+      </div>
+      <div class="swiss-kpi">
+        <div class="knum">+38%</div>
+        <div class="klabel">Crescimento de base ativa</div>
+        <div class="kdetail">Sustentado por 13 meses consecutivos</div>
+      </div>
+      <div class="swiss-kpi">
+        <div class="knum">+27%</div>
+        <div class="klabel">Aumento de baseline</div>
+        <div class="kdetail">De jogadores ativos na plataforma</div>
+      </div>
+    </div>
+
+    <div class="ee-divider">
+      <div class="ee-label">The Engagement Effect — 5 Operadores Europeus · Dados 2025/2026</div>
+      <div class="ee-line"></div>
+    </div>
+
+    <div class="ee-kpis">
+      <div class="ee-kpi">
+        <div class="enum">+600%</div>
+        <div class="elabel">ARPU — jogadores engajados com Missões</div>
+        <div class="edetail">vs. jogadores não-engajados, mesma plataforma</div>
+      </div>
+      <div class="ee-kpi">
+        <div class="enum">98%</div>
+        <div class="elabel">Game completion rate</div>
+        <div class="edetail">Free-to-Play · D30 retention acima de 88% em todos os cohorts</div>
+      </div>
+      <div class="ee-kpi">
+        <div class="enum">2–3×</div>
+        <div class="elabel">ARPU durante a janela de missão</div>
+        <div class="edetail">E +23% nos 3 dias após — o efeito não para quando a missão acaba</div>
+      </div>
+      <div class="ee-kpi">
+        <div class="enum">+124%</div>
+        <div class="elabel">ARPU de plataforma inteira</div>
+        <div class="edetail">Quando missões escalam — toda a base melhora, não só os engajados</div>
+      </div>
+    </div>
+
+    <div class="br-box">
+      <div class="br-label">Nossa Proposta para o Brasil</div>
+      <p>Não trazemos uma promessa genérica. Trazemos uma plataforma <span class="hl">comprovada em mercados regulados</span>, modelos de IA <span class="hl">calibráveis para o comportamento do jogador brasileiro</span>, e a disposição de construir juntos os resultados que vão definir o benchmark do mercado nacional.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SECTION 7 — DIFERENCIAL + CTA
+═══════════════════════════════ -->
+<section class="s-diff">
+  <div class="container">
+
+    <div class="eyebrow">O Que Nos Diferencia</div>
+    <h2>CRM <span class="accent">comunica.</span><br>Gamanza <span class="accent2">orquestra.</span></h2>
+    <div class="divider"></div>
+
+    <div class="diff-cards">
+      <div class="diff-card d1">
+        <div class="dc-label">O Problema do Mercado</div>
+        <h4>Todos operam na mesma lógica</h4>
+        <p>Segmentar, enviar campanha, distribuir bônus. O ciclo é caro, previsível e não cria lealdade. Quando todo mundo faz igual, ninguém se diferencia.</p>
+      </div>
+      <div class="diff-card d2">
+        <div class="dc-label">Nossa Proposta</div>
+        <h4>Orquestração na jornada do jogador</h4>
+        <p>A Gamanza entrega a experiência diretamente na jornada — sem iframe, com identidade da marca, em tempo real. Não interrompe. Engaja.</p>
+      </div>
+      <div class="diff-card d3">
+        <div class="dc-label">Parceria & Suporte</div>
+        <h4>Um time dedicado ao seu sucesso</h4>
+        <p>Account manager exclusivo, Customer Success no horário do Brasil e suporte 24/7. Você não implementa uma ferramenta — você ganha um time.</p>
+      </div>
+    </div>
+
+    <div class="compare-block">
+      <div class="cb-title">A diferença entre comunicar e engajar</div>
+      <div class="compare-cols">
+        <div class="compare-col crm">
+          <div class="col-header"><div class="ch-label">📊 CRM Tradicional</div></div>
+          <div class="compare-item"><div class="ci-text">Segmenta jogadores</div></div>
+          <div class="compare-item"><div class="ci-text">Envia campanhas</div></div>
+          <div class="compare-item"><div class="ci-text">Distribui bônus</div></div>
+          <div class="compare-item"><div class="ci-text">Trabalha canais de comunicação</div></div>
+          <div class="compare-item"><div class="ci-text">Foca na mensagem</div></div>
+        </div>
+        <div class="compare-col gamanza">
+          <div class="col-header"><div class="ch-label">🎮 Gamanza Engage</div></div>
+          <div class="compare-item"><div class="ci-text">Entende comportamento individual</div></div>
+          <div class="compare-item"><div class="ci-text">Cria jornadas personalizadas</div></div>
+          <div class="compare-item"><div class="ci-text">Cria motivação intrínseca</div></div>
+          <div class="compare-item"><div class="ci-text">Orquestra experiências — sem iframe</div></div>
+          <div class="compare-item"><div class="ci-text">Foca no engajamento real</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist-label">Por que operadores escolhem a Gamanza</div>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-icon">✅</div>
+        <div class="check-text"><strong>Aumentar retenção</strong> — de forma sistemática, não com bônus episódicos</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✅</div>
+        <div class="check-text"><strong>Reduzir dependência de bônus</strong> — e proteger margem operacional</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✅</div>
+        <div class="check-text"><strong>Criar experiências diferenciadas</strong> — com identidade da marca, sem iframe, em tempo real</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✅</div>
+        <div class="check-text"><strong>Suporte dedicado no horário do Brasil</strong> — account manager + Customer Success 24/7</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✅</div>
+        <div class="check-text"><strong>Operar com compliance</strong> — Responsible Gaming integrado desde a arquitetura</div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-ey">Próximo Passo</div>
+      <h3>A melhor forma de entender<br>a Gamanza é <span class="hl">ao vivo.</span></h3>
+      <p>Propomos uma demonstração personalizada — não um tour genérico de produto, mas uma sessão focada nos seus desafios específicos de retenção e crescimento.</p>
+      <div class="cta-bar"></div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
